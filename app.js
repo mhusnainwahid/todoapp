@@ -10,9 +10,10 @@ var Task = document.getElementById("task");
 var list = document.getElementById("ctn");
 const ol = document.getElementById("todo-list");
 ol.classList.add("list-group", "list-group-numbered");
+const listBtn = document.getElementById("list-btn")
 
 
-console.log(ol)
+// console.log(ol)
 
 async function addTodoToUi(){
   const { data, error } = await supabasePro
@@ -32,7 +33,6 @@ async function addTodoToUi(){
   }
 }
  
-addTodoToUi()
 
 async function loadTodos() {
   inp = userInp.value;
@@ -46,11 +46,10 @@ async function loadTodos() {
   }else{
     console.log(error)
   }
-
-  addTodoToUi()
-
+  listBtn.classList.add("d-none")
 }
 
+addTodoToUi()
 
 async function deleteTodos(id){
   console.log(id)
@@ -58,17 +57,33 @@ async function deleteTodos(id){
   .from('todos')
   .delete()
   .eq('id', id)
+  window.location.reload()
 
 }
 
 
-// function switchlist(){
-//   Task.classList.add("hidden")
-//   list.classList.remove("hidden")
-// }
+function switchlist(){
+  Task.classList.add("hidden")
+  list.classList.remove("hidden")
+}
 
 
-// function switchtotask(){
-//   window.location.reload()
-// }
+function switchtotask(){
+  window.location.reload()
+}
 
+
+function goToTodosList(){
+  Task.classList.add("hidden")
+  list.classList.remove("hidden")
+  listBtn.classList.add("d-none")
+}
+
+async function completeTodo(id){
+  alert("Task Complete! ")
+  const response = await supabasePro
+  .from('todos')
+  .delete()
+  .eq('id', id)
+  window.location.reload()
+}

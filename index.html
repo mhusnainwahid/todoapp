@@ -15,7 +15,7 @@
         <div class="nav">
             <h1>Todo App</h1>
         </div>
-        <div class="task hidden" id="task">
+        <div class="task" id="task">
             <div class="input-group input-group-lg" id="inp">
                 <span class="input-group-text" id="inputGroup-sizing-lg">Write Todo</span>
                 <input id="inp1" type="text" class="form-control" aria-label="Sizing example input"
@@ -24,7 +24,7 @@
             <button type="button" onclick="loadTodos(),switchlist()" class="addTask-btn btn btn-primary">Add
                 Task</button>
         </div>
-        <div id="ctn" >
+        <div id="ctn" class="hidden" >
             <div class="ctn-list">
                 <button type="button" onclick="switchtotask()" class="main-btn btn btn-primary">Add a task</button>
                 <ol class="list-group list-group-numbered" id="todo-list">
@@ -37,6 +37,7 @@
                 </ol>
             </div>
         </div>
+            <button id="list-btn" type="button" onclick="goToTodosList()" class="main-btn btn btn-primary">Go To Todos List</button>
     </div>
 
 </body>

@@ -107,3 +107,14 @@
 .line-through{
     text-decoration: line-through;
 }
+#list-btn{
+    width: 180px;
+    margin-left: 40%;
+    border: 2px solid black !important;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(144, 138, 131) !important;
+}
+#list-btn:hover{
+    background-color: rgb(151, 124, 89) !important;
+}
