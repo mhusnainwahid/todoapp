@@ -24,14 +24,15 @@ async function addTodoToUi(){
     const li = document.createElement("li");
     li.innerHTML = `<span class="span-task">${data[i].task}</span>
                     <div class="task-btn">                          
-                    <button class="btn btn-warning">Completed</button>
-                    <button  class="btn btn-danger">Delete</button>
+                    <button class="btn btn-warning" onclick="completeTodo(${data[i].id})">Completed</button>
+                    <button  class="btn btn-danger" onclick="deleteTodos(${data[i].id})">Delete</button>
                     <div/>`
     li.classList.add("list-group-item");  
     ol.appendChild(li)  
   }
 }
-
+ 
+addTodoToUi()
 
 async function loadTodos() {
   inp = userInp.value;
@@ -51,24 +52,23 @@ async function loadTodos() {
 }
 
 
-// async function deleteTodos(id){
-//   console.log(id)
-//   const response = await supabasePro
-//   .from('todos')
-//   .delete()
-//   .eq('id', id)
+async function deleteTodos(id){
+  console.log(id)
+  const response = await supabasePro
+  .from('todos')
+  .delete()
+  .eq('id', id)
 
+}
+
+
+// function switchlist(){
+//   Task.classList.add("hidden")
+//   list.classList.remove("hidden")
 // }
 
 
-
-function switchlist(){
-  Task.classList.add("hidden")
-  list.classList.remove("hidden")
-}
-
-
-function switchtotask(){
-  window.location.reload()
-}
+// function switchtotask(){
+//   window.location.reload()
+// }
 
